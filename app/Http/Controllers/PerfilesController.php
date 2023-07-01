@@ -19,4 +19,13 @@ class PerfilesController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function destroy(Usuario $usuario)
+    {
+        if($cuenta!=Auth::user()){
+            $cuenta->delete();
+        }
+
+        return redirect()->route('usuarios.index');
+    }
 }
